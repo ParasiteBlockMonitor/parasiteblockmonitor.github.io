@@ -438,6 +438,16 @@ function closeAlert(){
 }
 document.getElementById('alClose').addEventListener('click',closeAlert);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAlert()});
+/* autoplay can be blocked when the alert opens with no prior user gesture
+   (e.g. an ?alert= link) — retry the video on any interaction */
+function tryPlayVid(){
+  if(!alertEl.classList.contains('show'))return;
+  var v=document.getElementById('bg');
+  if(v.src&&v.paused&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    v.play().then(function(){v.classList.add('playing')}).catch(function(){});
+  }
+}
+['pointerdown','keydown','touchstart'].forEach(function(ev){document.addEventListener(ev,tryPlayVid)});
 window.addEventListener('resize',function(){
   if(!alertEl.classList.contains('show'))return;
   if(currentBlock){generateArt(currentBlock.id||'parasite');drawSketchBlock(currentBlock);
