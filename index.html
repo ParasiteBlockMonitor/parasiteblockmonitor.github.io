@@ -902,6 +902,18 @@ loadStore();
 renderAll();
 backfill();
 connect();
+
+/* ?alert=<height> — open the takeover for that block once its data is here */
+(function(){
+  var qa=new URLSearchParams(location.search).get('alert');
+  if(!qa)return;
+  var tries=0;
+  var t=setInterval(function(){
+    var b=state.blocks[qa];
+    if(b){clearInterval(t);chirp();openAlert(b,false);}
+    else if(++tries>40){clearInterval(t)}
+  },400);
+})();
 </script>
 </body>
 </html>
