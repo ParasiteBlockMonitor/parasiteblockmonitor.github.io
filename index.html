@@ -115,14 +115,14 @@ header{display:flex;align-items:center;gap:18px;padding:clamp(20px,4vw,44px) 0 8
 .al-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
   z-index:10;opacity:0;animation:fadeUp 1.4s ease .4s forwards;padding:20px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.al-found{font-family:var(--marker);font-size:clamp(18px,3.4vw,46px);color:#fff;letter-spacing:.25em;
+.al-found{font-family:var(--marker);font-size:min(clamp(18px,3.4vw,46px),4.6vh);color:#fff;letter-spacing:.25em;
   text-transform:uppercase;-webkit-text-stroke:1px rgba(0,0,0,.6);
   text-shadow:0 0 30px rgba(0,0,0,.9),0 2px 4px rgba(0,0,0,.8),0 0 60px rgba(138,178,77,.5)}
-.al-height{font-family:var(--marker);font-size:clamp(56px,12vw,170px);color:#fff;line-height:1;
+.al-height{font-family:var(--marker);font-size:min(clamp(56px,12vw,170px),15vh);color:#fff;line-height:1;
   -webkit-text-stroke:2px rgba(0,0,0,.5);
   text-shadow:3px 3px 0 rgba(0,0,0,.7),0 0 40px rgba(0,0,0,.9),0 0 80px rgba(0,0,0,.6)}
 #sketchBlock{filter:drop-shadow(0 6px 24px rgba(0,0,0,.6))}
-video#bg{width:clamp(200px,28vw,400px);height:auto;opacity:0;transition:opacity 3s;
+video#bg{width:min(clamp(200px,28vw,400px),30vh);height:auto;opacity:0;transition:opacity 3s;
   margin-top:1vh;mix-blend-mode:multiply;
   -webkit-mask-image:radial-gradient(ellipse 90% 85% at center,black 40%,transparent 72%);
   mask-image:radial-gradient(ellipse 90% 85% at center,black 40%,transparent 72%)}
